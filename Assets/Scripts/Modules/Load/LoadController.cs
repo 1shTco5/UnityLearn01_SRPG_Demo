@@ -48,7 +48,7 @@ public class LoadController : BaseController
 
         //延迟一些
         GameApp.TimeManager.Register(
-            1f,
+            0.1f,
             delegate()
             {
                 GetModel<LoadModel>().callback?.Invoke(); //执行回调

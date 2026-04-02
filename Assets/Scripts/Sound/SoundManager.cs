@@ -27,7 +27,7 @@ public class SoundManager
         }
     }
 
-    private float bgmVolume;
+    private float bgmVolume = 0.5f;
     public float BGMVolume
     {
         get { return bgmVolume; }
@@ -38,7 +38,7 @@ public class SoundManager
         }
     }
 
-    private float seVolume;
+    private float seVolume = 0.5f;
     public float SEVolume
     {
         get { return seVolume; }
@@ -75,6 +75,6 @@ public class SoundManager
             AudioClip clip = Resources.Load<AudioClip>($"Sounds/{res}");
             clips.Add(res, clip);
         }
-        AudioSource.PlayClipAtPoint(clips[res], pos);
+        AudioSource.PlayClipAtPoint(clips[res], pos, seVolume);
     }
 }

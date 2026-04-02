@@ -31,7 +31,7 @@ public class Hero : ModelBase, ISkill
     protected override void OnSelectCallback(object arg)
     {
         //玩家回合 才能选中角色
-        if (GameApp.FightManager.state == GameState.Player)
+        if (GameApp.FightManager.state == GameState.Player && !IsStop)
         {
             //不能操作
             if (GameApp.CommandManager.IsRunningCommand)

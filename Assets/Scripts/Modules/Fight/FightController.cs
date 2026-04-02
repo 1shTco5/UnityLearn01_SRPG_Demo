@@ -9,15 +9,6 @@ public class FightController : BaseController
         SetModel(new FightModel(this)); //设置战斗数据
 
         GameApp.ViewManager.Register(
-            ViewType.FightView,
-            new ViewInfo()
-            {
-                prefabName = "FightView",
-                controller = this,
-                parentTf = GameApp.ViewManager.canvasTf,
-            }
-        );
-        GameApp.ViewManager.Register(
             ViewType.FightSelCharView,
             new ViewInfo()
             {
@@ -126,7 +117,7 @@ public class FightController : BaseController
         //进入战斗
         GameApp.FightManager.ChangeState(GameState.Enter);
 
-        GameApp.ViewManager.Open(ViewType.FightView);
+        // GameApp.ViewManager.Open(ViewType.FightView);
         GameApp.ViewManager.Open(ViewType.FightSelCharView);
     }
 }

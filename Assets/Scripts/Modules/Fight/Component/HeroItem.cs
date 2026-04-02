@@ -39,7 +39,8 @@ public class HeroItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
                     if (b != null)
                     {
                         //有block
-                        Destroy(gameObject); //删除图标
+                        // Destroy(gameObject); //删除图标
+                        gameObject.SetActive(false);
                         //创建英雄物体
                         GameApp.FightManager.SpawnHero(b, data);
                     }

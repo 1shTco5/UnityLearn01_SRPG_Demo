@@ -4,10 +4,13 @@ using UnityEngine.UI;
 
 public class FightSelCharView : BaseView
 {
+    private List<HeroItem> heros;
+
     protected override void OnAwake()
     {
         base.OnAwake();
 
+        heros = new();
         Find<Button>("bottom/startBtn").onClick.AddListener(OnBeginFightBtn);
     }
 
@@ -30,6 +33,15 @@ public class FightSelCharView : BaseView
 
     public override void Open(params object[] args)
     {
+        if (heros.Count > 0)
+        {
+            foreach (HeroItem item in heros)
+            {
+                item.gameObject.SetActive(true);
+            }
+            return;
+        }
+
         GameObject prefabObj = Find("bottom/grid/item");
         Transform gridTf = Find("bottom/grid").transform;
 
@@ -44,6 +56,7 @@ public class FightSelCharView : BaseView
             HeroItem item = obj.AddComponent<HeroItem>();
 
             item.Init(data);
+            heros.Add(item);
         }
     }
 }

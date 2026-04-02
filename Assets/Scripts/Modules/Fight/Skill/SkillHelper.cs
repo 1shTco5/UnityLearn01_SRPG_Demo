@@ -18,6 +18,18 @@ public static class SkillHelper
         return false;
     }
 
+    public static bool IsModelInSkillArea(this ISkill skill, Vector2Int cellPos)
+    {
+        int row = cellPos.x,
+            col = cellPos.y;
+        ModelBase curr = (ModelBase)skill;
+        if (curr.GetDist(row, col) <= skill.skill.atkRange)
+        {
+            return true;
+        }
+        return false;
+    }
+
     //获得技能作用的目标
     public static List<ModelBase> GetTarget(this ISkill skill)
     {
@@ -48,7 +60,7 @@ public static class SkillHelper
             if (target != null)
             {
                 //技能的目标类型 跟 技能指向的目标类型要跟配置表一致
-                if (skill.skill.targetType == target.type)
+                if (skill.skill.targetType == target.type && skill.IsModelInSkillArea(target))
                 {
                     rets.Add(target);
                 }

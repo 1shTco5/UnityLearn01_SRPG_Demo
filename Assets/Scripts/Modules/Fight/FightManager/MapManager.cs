@@ -74,6 +74,12 @@ public class MapManager
         }
     }
 
+    public Vector2Int GetTilePos(Vector3 pos)
+    {
+        Vector3Int cellPos = tilemap.WorldToCell(pos);
+        return (Vector2Int)cellPos;
+    }
+
     public void ChangeBlockType(int row, int col, BlockType type)
     {
         mapArr[row, col].type = type;

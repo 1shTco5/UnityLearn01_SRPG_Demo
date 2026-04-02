@@ -140,6 +140,11 @@ public class ModelBase : MonoBehaviour
         return Mathf.Abs(rowIndex - model.rowIndex) + Mathf.Abs(colIndex - model.colIndex);
     }
 
+    public float GetDist(int row, int col)
+    {
+        return Mathf.Abs(rowIndex - row) + Mathf.Abs(colIndex - col);
+    }
+
     //播放音效 (攻击 受伤等)
     public void PlaySound(string name)
     {

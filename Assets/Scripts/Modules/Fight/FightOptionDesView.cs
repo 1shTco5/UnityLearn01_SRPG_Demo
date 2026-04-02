@@ -14,7 +14,20 @@ public class FightOptionDesView : BaseView
     //结束本局游戏
     private void OnGameOverBtn()
     {
-        GameApp.ViewManager.Close(ViewID);
+        GameApp.FightManager.Clear();
+        GameApp.ViewManager.CloseAll();
+
+        LoadModel load = new()
+        {
+            sceneName = "MapScene",
+            callback = delegate()
+            {
+                GameApp.SoundManager.PlayBGM("mapbgm");
+                GameApp.ViewManager.Open(ViewType.SelectLevelView);
+            },
+        };
+
+        Controller.ApplyControllerFunc(ControllerType.Load, Defines.LoadScene, load);
     }
 
     //回合结束 切换到敌人回合
