@@ -1,5 +1,6 @@
 # UnityLearn01_SRPG_demo 文档
 - 作者声明: 该文档由AI生成, 内容仅供参考.
+- 本项目参考B站up[独立开发者C酱](https://space.bilibili.com/641563?spm_id_from=333.788.upinfo.head.click)教程
 
 ## 📚 文档目录
 
